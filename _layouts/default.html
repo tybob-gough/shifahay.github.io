@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+{% include head.html %}
+
+<body>
+
+  {% comment %}
+    {% include navbar.html %}
+  {% endcomment %}
+
+  {{ content }}
+
+  {% comment %}
+    {% include footer.html %}
+  {% endcomment %}
+
+  {% include scripts.html %}
+
+  {% comment %}
+    {% include google-analytics.html %}
+  {% endcomment %}
+
+</body>
+
+</html>

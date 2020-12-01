@@ -1,0 +1,267 @@
+---
+layout: homepage
+background: '/assets/images/marathon.jpg'
+---
+<!-- Introduction-->
+<div id="intro">
+  <h2>Project Introduction</h2>
+  <!-- Text from project proposal -->
+  <p>More than half a million Americans completed a full marathon (42.2 km) in 2016. Of course, this means that there were approximately 322.5 million Americans who didn’t complete a marathon that year. Our project targets both these marathoning and non-marathoning audiences by asking the simple question: How can mapping marathons change perception of them? A marathon is a ‘spatiotemporal event’ but is often thought about only in non-spatial contexts in terms of distance (i.e., how long is it?) or time (i.e., how much time did it take?). Our aim with this project is to explore how mapping can provide novel understanding of marathons and the people who run them.</p>
+</div>
+<!-- Map Introduction-->
+<div id="map_intro" class="mb-4">
+  <h2> The Maps </h2>
+  <p>In this project we present two maps.</p>
+  <!-- Description of first map-->
+  <p>The first map...</p>
+  <p>The second map presents a 'virtual race' where icons representing eight runners (professionals and celebrities) move along the route of the Boston Marathon. The icons are programmed to move along the race course at 100x the speed at which the person represented actually ran. Simply press the 'Start the race!' to make the icons move. Press 'Pause the race!' to pause the icons. Press 'Reset the race!' to bring the icons back to the start line. Click on the icons to discover how fast they are moving. You can switch map view or select which icons you would like to appear on the map by clicking the layers button on the top right of the map.</p>
+  <br>
+  <!-- Buttons (functions in script below)-->
+  <div class="button-wrap">
+    <button class="btn btn-success" onclick="raceStart()">Start the race!</button>
+    <button class="btn btn-primary" onclick="racePause()">Pause the race!</button>
+    <button class="btn btn-danger" onclick="raceReset()">Reset the race!</button>
+  </div>
+</div>
+<div id="map"><br></div>
+<div id="racers" class="mt-5">
+  <h2>The Runners</h2>
+
+  <table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Picture</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Eliud Kipchoge</td>
+      <td>Eliud Kipchoge is the best marathoner of all time. He holds the current official world record of 2:01:39 and has run the only marathon under 2 hours in a controlled time trial. He is a farmer and trains in the highlands of Kenya near the town of Eldoret. A friend gifted him a cow to congratulate him for winning the London Marathon.</td>
+      <td class="table-pict"><img src="{{"/assets/images/eliud.jpg" | relative_url }}" alt="Eliud Kipchoge winning the London Marathon."></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Scott Fauble</td>
+      <td>Scott Fauble is an elite runner for the Hoka Northern Arizona Elite running team in Flagstaff, Arizona. He has run a personal best marathon of 2:09:09 at the 2019 Boston Marathon. He shares all his training on <a href="https://www.strava.com/pros/7780234">Strava</a> and is known for his love of burritos.</td>
+      <td class="table-pict"><img src="{{"/assets/images/scott.jpg" | relative_url }}" alt="Scott Fauble holding a burrito."></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Aliphine Tuliamuk</td>
+      <td>Aliphine Tuliamuk is an elite runner on the same team as Scott Fauble. She placed first at the United States Marathon Olympic Team Trials and has run a personal best of 2:26:50. She is one of 32 kids and sells crocheted beanies on Etsy; her shop has been out of stock since she won the Trials.</td>
+      <td class="table-pict"><img src="{{"/assets/images/aliphine.png" | relative_url }}" alt="Aliphine Tuliamuk and her Olympic Trials bib."></td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Ed Whitlock</td>
+      <td>Ed Whitlock was a Canadian runner and the first person over the age of 70 to run a marathon in under 3 hours. At 73, he ran 2:54:49 at the Toronto Waterfront Marathon. He ran his last marathon at age 85 in 3:56:38 (a world record). A street in Milton, Ontario is now named in his honour.</td>
+      <td class="table-pict"><img src="{{"/assets/images/ed.jpg" | relative_url }}" alt="Ed Whitlock finishing the Toronto Waterfront marathon."></td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Caroline Wozniacki</td>
+      <td>Caroline Wozniacki is a former world #1 ranked tennis player who ran the New York City Marathon in 2014, while she was still playing competitively. Her time of 3:26:33 is a rare example of a marathon time run by a non-runner, world-class athlete during their career.</td>
+      <td class="table-pict"><img src="{{"/assets/images/caroline.jpg" | relative_url }}" alt="Caroline Wozniacki"></td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Will Ferrell</td>
+      <td>Will Ferrell is, well, Will Ferrell. He ran the Boston Marathon in 2003 with a time of 3:56:12. When asked if he is ever bothered by people who recognize him while running, he said "People are terribly underwhelmed when they recognize me in a race. There’s nothing funny going on. It’s just a lot of silence and pain."</td>
+      <td class="table-pict"><img src="{{"/assets/images/will.jpg" | relative_url }}" alt="Will Ferrell"></td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Oprah Winfrey</td>
+      <td>Oprah Winfrey ran the Marine Corps Marathon in 1994. Her time of 4:29:15 is known as 'The Oprah Line', and is a common goal time for some amateur runners taking on the marathon.</td>
+      <td class="table-pict"><img src="{{"/assets/images/oprah.jpg" | relative_url }}" alt="Oprah Winfrey"></td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Tedy Bruschi</td>
+      <td>Tedy Bruschi is a former NFL linebacker who had a long career with the New England Patriots. He has run the Boston Marathon three times, running it for the first time in 2012 in 4:47:44. He runs to raise money for stroke awareness.</td>
+      <td class="table-pict"><img src="{{"/assets/images/tedy.jpg" | relative_url }}" alt="Tedy Bruschi"></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<script>
+//Load basemaps and create map frame
+var satImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+  crossOrigin: true
+});
+
+var streets = L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GbTgUaI7708nBO7eCLe3', {
+  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
+  crossOrigin: true
+});
+
+var map = L.map('map', {
+  center: [42.289751, -71.308],
+  zoom: 11,
+  layers: [streets, satImagery]
+});
+
+
+//Draw features
+var boston = L.polyline(BostonRoute);
+map.addLayer(boston);
+
+var scottFauble = L.animatedMarker(boston.getLatLngs(), {
+  distance: 1000,
+  interval: 1836.26,
+  autoStart: false,
+  icon: Fauble,
+  clickable: true
+});
+map.addLayer(scottFauble);
+scottFauble.bindPopup("<b>Scott Fauble</b><br><b>Marathon Time:</b> 2:09:09<br><b>Real-World Pace:</b> 3:04/km<br><b>Simulated pace:</b> 1.836 seconds/km")
+
+var eliudKipchoge = L.animatedMarker(boston.getLatLngs(), {
+  distance: 1000,
+  interval: 1729.62,
+  autoStart: false,
+  icon: Kipchoge,
+  clickable: true
+});
+map.addLayer(eliudKipchoge);
+eliudKipchoge.bindPopup("<b>Eliud Kipchoge</b><br><b>Marathon Time:</b> 2:01:39<br><b>Real-World Pace:</b> 2:53/km<br><b>Simulated pace:</b> 1.730 seconds/km")
+
+var aliphineTuliamuk = L.animatedMarker(boston.getLatLngs(), {
+  distance: 1000,
+  interval: 2087.77,
+  autoStart: false,
+  icon: Tuliamuk,
+  clickable: true
+});
+map.addLayer(aliphineTuliamuk);
+aliphineTuliamuk.bindPopup("<b>Aliphine Tuliamuk</b><br><b>Marathon Time:</b> 2:26:50<br><b>Real-World Pace:</b> 3:29/km<br><b>Simulated pace:</b> 2.088 seconds/km")
+
+var willFerrell = L.animatedMarker(boston.getLatLngs(), {
+  distance: 1000,
+  interval: 3358.30,
+  autoStart: false,
+  icon: Ferrell,
+  clickable: true
+});
+map.addLayer(willFerrell);
+willFerrell.bindPopup("<b>Will Ferrell</b><br><b>Marathon Time:</b> 3:56:12<br><b>Real-World Pace:</b> 5:36/km<br><b>Simulated pace:</b> 3.358 seconds/km")
+
+var oprahWinfrey = L.animatedMarker(boston.getLatLngs(), {
+  distance: 1000,
+  interval: 3828.20,
+  autoStart: false,
+  icon: Oprah,
+  clickable: true
+});
+map.addLayer(oprahWinfrey);
+oprahWinfrey.bindPopup("<b>Oprah Winfrey</b><br><b>Marathon Time:</b> 4:29:15<br><b>Real-World Pace:</b> 6:23/km<br><b>Simulated pace:</b> 3.828 seconds/km")
+
+var edWhitlock = L.animatedMarker(boston.getLatLngs(), {
+  distance: 1000,
+  interval: 2485.55,
+  autoStart: false,
+  icon: Whitlock,
+  clickable: true
+});
+map.addLayer(edWhitlock);
+edWhitlock.bindPopup("<b>Ed Whitlock</b><br><b>Marathon Time:</b> 2:54:49<br><b>Real-World Pace:</b> 4:09/km<br><b>Simulated pace:</b> 2.486 seconds/km")
+
+var carolineWozniacki = L.animatedMarker(boston.getLatLngs(), {
+  distance: 1000,
+  interval: 2936.73,
+  autoStart: false,
+  icon: Wozniacki,
+  clickable: true
+});
+map.addLayer(carolineWozniacki);
+carolineWozniacki.bindPopup("<b>Caroline Wozniacki</b><br><b>Marathon Time:</b> 3:26:33<br><b>Real-World Pace:</b> 4:54/km<br><b>Simulated pace:</b> 2.937 seconds/km")
+
+var teddyBruschi = L.animatedMarker(boston.getLatLngs(), {
+  distance: 1000,
+  interval: 4090.99,
+  autoStart: false,
+  icon: Bruschi,
+  clickable: true
+});
+map.addLayer(teddyBruschi);
+teddyBruschi.bindPopup("<b>Tedy Bruschi</b><br><b>Marathon Time:</b> 4:47:44<br><b>Real-World Pace:</b> 6:49/km<br><b>Simulated pace:</b> 4.099 seconds/km")
+
+function raceStart() {
+  scottFauble.start();
+  eliudKipchoge.start();
+  aliphineTuliamuk.start();
+  teddyBruschi.start()
+  willFerrell.start();
+  oprahWinfrey.start();
+  edWhitlock.start();
+  carolineWozniacki.start();
+};
+
+function racePause() {
+  scottFauble.stop();
+  eliudKipchoge.stop();
+  aliphineTuliamuk.stop();
+  willFerrell.stop();
+  oprahWinfrey.stop();
+  edWhitlock.stop();
+  carolineWozniacki.stop();
+  teddyBruschi.stop()
+};
+
+//bug - when items reset they start automatically?
+function raceReset() {
+  scottFauble.reStart(boston.getLatLngs());
+  eliudKipchoge.reStart(boston.getLatLngs());
+  aliphineTuliamuk.reStart(boston.getLatLngs());
+  willFerrell.reStart(boston.getLatLngs());
+  oprahWinfrey.reStart(boston.getLatLngs());
+  edWhitlock.reStart(boston.getLatLngs());
+  carolineWozniacki.reStart(boston.getLatLngs());
+  teddyBruschi.reStart(boston.getLatLngs());
+  scottFauble.stop();
+  eliudKipchoge.stop();
+  aliphineTuliamuk.stop();
+  willFerrell.stop();
+  oprahWinfrey.stop();
+  edWhitlock.stop();
+  carolineWozniacki.stop();
+  teddyBruschi.stop()
+  eliudKipchoge.stop();
+  aliphineTuliamuk.stop();
+  willFerrell.stop();
+  oprahWinfrey.stop();
+  edWhitlock.stop();
+  carolineWozniacki.stop();
+  teddyBruschi.stop()
+};
+
+
+//OverlayOptions
+var Racers = {
+  "Eliud Kipchoge": eliudKipchoge,
+  "Scott Fauble": scottFauble,
+  "Aliphine Tuliamuk": aliphineTuliamuk,
+  "Ed Whitlock": edWhitlock,
+  "Caroline Wozniacki": carolineWozniacki,
+  "Will Ferrell": willFerrell,
+  "Oprah Winfrey": oprahWinfrey,
+  "Tedy Bruschi": teddyBruschi
+};
+
+var Basemaps = {
+  "Street Map": streets,
+  "Satellite Imagery": satImagery
+};
+
+//Layer control options
+L.control.layers(Basemaps, Racers).addTo(map);
+
+//Add scale bar
+L.control.scale().addTo(map);
+</script>
+</div>
